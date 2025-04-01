@@ -243,7 +243,7 @@ def about():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    if current_user.id == 1:
+    if current_user.is_authenticated and current_user.id == 1:
         return abort(403)
 
     contact_form = ContactForm()
